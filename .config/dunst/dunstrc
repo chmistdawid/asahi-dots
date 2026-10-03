@@ -1,0 +1,56 @@
+[global]
+    monitor = 0
+    follow = mouse
+
+    origin = top-right
+    width = 400
+    height = 120
+    offset = 20x20
+    gap = 10
+    notification_limit = 5
+
+    padding = 12
+    horizontal_padding = 16
+    frame_width = 1
+    corner_radius = 0
+
+    font = Iosevka NFM 12
+    sort = yes
+    idle_threshold = 0
+
+    timeout = 5
+    background = "#262427"
+    foreground = "#fcfcfa"
+    frame_color = "#545452"
+
+    icon_position = left
+    icon_theme = Adwaita
+
+    stack_duplicates = true
+    hide_duplicate_count = false
+    show_indicators = no
+
+[urgency_low]
+    background = "#262427"
+    foreground = "#fcfcfa"
+    frame_color = "#545452"
+    timeout = 5
+
+[urgency_normal]
+    background = "#262427"
+    foreground = "#fcfcfa"
+    frame_color = "#545452"
+    timeout = 8
+
+[urgency_critical]
+    background = "#262427"
+    foreground = "#fcfcfa"
+    frame_color = "#a392e8"
+    timeout = 0
+
+# dmenu-like hotkeys
+[shortcuts]
+    close = ctrl+space
+    close_all = ctrl+shift+space
+    history = ctrl+grave
+    context = ctrl+shift+period

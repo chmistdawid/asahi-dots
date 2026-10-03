@@ -1,0 +1,101 @@
+{
+  // Simple Waybar config for Hyprland (Arch desktop, wired, PipeWire)
+  // See: https://github.com/Alexays/Waybar/wiki
+
+  "layer": "top",
+  "position": "top",
+  "height": 34,
+  "spacing": 4,
+  "margin-top": 10,
+  "margin-left": 10,
+  "margin-right": 10,
+
+  "modules-left": [
+    "hyprland/workspaces",
+    "hyprland/window"
+  ],
+  "modules-center": [
+    "clock"
+  ],
+  "modules-right": [
+    "cpu",
+    "memory",
+    "disk",
+    "pulseaudio",
+    "network",
+    "tray"
+  ],
+
+  "hyprland/workspaces": {
+    "format": "{name}",
+    "on-click": "activate"
+  },
+
+  "hyprland/window": {
+    "format": "{title}",
+    "max-length": 50,
+    "separate-outputs": true
+  },
+
+  "clock": {
+    "format": "{:%a %d %b  %H:%M}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "on-click": "ghostty -e cal -y"
+  },
+
+  "cpu": {
+    "format": "<span size='larger'></span> {usage}%",
+    "tooltip": true,
+    "interval": 2,
+    "on-click": "ghostty -e htop"
+  },
+
+  "memory": {
+    "format": "<span size='larger'></span> {percentage}%",
+    "tooltip-format": "{used:0.1f}G / {total:0.1f}G",
+    "interval": 5,
+    "on-click": "ghostty -e htop"
+  },
+
+  "disk": {
+    "format": "<span size='larger'></span> {percentage_used}%",
+    "tooltip-format": "{used} / {total} [{path}]",
+    "path": "/",
+    "interval": 30,
+    "on-click": "ghostty -e df -h"
+  },
+
+  "pulseaudio": {
+    // Scarlett Solo is default sink; scroll = volume, click = mute
+    "format": "{icon} {volume}%",
+    "format-muted": "<span size='larger'></span> muted",
+    "format-icons": {
+      "headphone": "<span size='larger'></span>",
+      "hands-free": "<span size='larger'></span>",
+      "headset": "<span size='larger'></span>",
+      "phone": "<span size='larger'></span>",
+      "portable": "<span size='larger'></span>",
+      "car": "<span size='larger'></span>",
+      "default": ["<span size='larger'></span>", "<span size='larger'></span>", "<span size='larger'></span>"]
+    },
+    "scroll-step": 5,
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "on-click-right": "ghostty -e alsamixer",
+    "tooltip-format": "{desc}"
+  },
+
+  "network": {
+    // Desktop, wired only (eno1). No wifi/bluetooth modules.
+    "format-wired": "<span size='larger'>󰈀</span> {ifname}",
+    "format-linked": "<span size='larger'>󰈀</span> {ifname} (no IP)",
+    "format-disconnected": "<span size='larger'>󰈂</span> disconnected",
+    "tooltip-format-wired": "{ifname}: {ipaddr}/{cidr}",
+    "interval": 10,
+    "on-click": "nm-connection-editor"
+  },
+
+  "tray": {
+    "icon-size": 18,
+    "spacing": 8
+  }
+}

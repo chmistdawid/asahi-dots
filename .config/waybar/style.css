@@ -1,0 +1,77 @@
+/* Waybar style — 0x96f, elegant low-contrast monochrome */
+
+* {
+  font-family: "Iosevka NFM", "Iosevka Nerd Font Mono", "IosevkaTerm NFM", monospace;
+  font-size: 14px;
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+}
+
+window#waybar {
+  background: rgba(38, 36, 39, 0.9);
+  color: rgba(252, 252, 250, 0.75);
+  border: 1px solid rgba(84, 84, 82, 0.6);
+}
+
+tooltip {
+  background: rgba(38, 36, 39, 0.95);
+  border: 1px solid rgba(84, 84, 82, 0.8);
+}
+tooltip label {
+  color: rgba(252, 252, 250, 0.8);
+}
+
+#workspaces button {
+  padding: 0 10px;
+  margin: 4px 2px;
+  color: rgba(252, 252, 250, 0.4);
+  background: transparent;
+}
+
+#workspaces button.active {
+  color: rgba(252, 252, 250, 0.9);
+  background: rgba(84, 84, 82, 0.45);
+}
+
+#workspaces button:hover {
+  color: rgba(252, 252, 250, 0.9);
+  background: rgba(84, 84, 82, 0.3);
+}
+
+#workspaces button.urgent {
+  color: rgba(252, 252, 250, 0.9);
+  background: rgba(84, 84, 82, 0.6);
+}
+
+#window {
+  margin: 4px 4px;
+  padding: 0 10px;
+  color: rgba(252, 252, 250, 0.4);
+}
+
+#clock,
+#cpu,
+#memory,
+#disk,
+#pulseaudio,
+#network,
+#tray {
+  margin: 4px 2px;
+  padding: 0 10px;
+  color: rgba(252, 252, 250, 0.75);
+  background: transparent;
+}
+
+#clock {
+  color: rgba(252, 252, 250, 0.9);
+}
+
+#pulseaudio.muted,
+#network.disconnected {
+  color: rgba(252, 252, 250, 0.35);
+}
+
+#tray {
+  padding-right: 6px;
+}
